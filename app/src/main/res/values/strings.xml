@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">PersonalReminder</string>
+    <!--<string name="bottom_menu_create">Create</string>-->
+    <!--<string name="bottom_menu_list">List</string>-->
+    <!--<string name="bottom_menu_tag">Tag</string>-->
+</resources>
