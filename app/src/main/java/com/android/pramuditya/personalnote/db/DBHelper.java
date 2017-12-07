@@ -7,6 +7,8 @@ import com.android.pramuditya.personalnote.model.Note;
 import com.android.pramuditya.personalnote.model.Tag;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.stmt.Where;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
@@ -21,8 +23,8 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     public static final String DB_NAME = "personal_note.db";
     private static final int DB_VERSION = 1;
 
-    public DBHelper(Context context){
-        super(context,DB_NAME, null, DB_VERSION);
+    public DBHelper(Context context) {
+        super(context, DB_NAME, null, DB_VERSION);
         getWritableDatabase();
     }
 
@@ -31,7 +33,7 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         try {
             TableUtils.createTable(connectionSource, Tag.class);
             TableUtils.createTable(connectionSource, Note.class);
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
     }
@@ -42,12 +44,12 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
 
     }
 
-    public <T>List getAll(Class clazz) throws SQLException {
+    public <T> List getAll(Class clazz) throws SQLException {
         Dao<T, ?> dao = getDao(clazz);
         return dao.queryForAll();
     }
 
-    public  <T>T getById(Class clazz, Object aId) throws SQLException {
+    public <T> T getById(Class clazz, Object aId) throws SQLException {
         Dao<T, Object> dao = getDao(clazz);
         return dao.queryForId(aId);
     }
@@ -57,12 +59,12 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
         return dao.createOrUpdate(obj);
     }
 
-    public  <T> int deleteById(Class clazz, Object aId) throws SQLException {
+    public <T> int deleteById(Class clazz, Object aId) throws SQLException {
         Dao<T, Object> dao = getDao(clazz);
         return dao.deleteById(aId);
     }
 
-    public <T> void deleteAll(Class clazz) throws SQLException{
+    public <T> void deleteAll(Class clazz) throws SQLException {
         Dao<T, Object> dao = getDao(clazz);
         dao.deleteBuilder().delete();
     }

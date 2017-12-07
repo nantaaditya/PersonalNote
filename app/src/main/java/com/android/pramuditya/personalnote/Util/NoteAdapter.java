@@ -128,7 +128,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
                         context.startActivity(waIntent);
 
                     } catch (Exception ex) {
-                        
+
                     }
                     break;
                 //
