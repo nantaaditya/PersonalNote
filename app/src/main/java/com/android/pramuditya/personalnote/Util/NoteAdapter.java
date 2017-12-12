@@ -55,7 +55,8 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private TextView tvTag, tvTitle, tvShare, tvDelete, tvNote;
+
+        private TextView tvTag, tvTitle, tvShare, tvDelete, tvNote, tvEdit;
         public int position;
 
         private DBHelper dbHelper;
@@ -70,9 +71,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
             this.tvShare = (TextView) itemView.findViewById(R.id.tv_share);
             this.tvDelete = (TextView) itemView.findViewById(R.id.tv_delete);
             this.tvNote = (TextView) itemView.findViewById(R.id.tv_note);
+            this.tvEdit = (TextView) itemView.findViewById(R.id.tv_edit);
 
             this.tvDelete.setOnClickListener(this);
             this.tvShare.setOnClickListener(this);
+            this.tvEdit.setOnClickListener(this);
 
             //title = this.tvTitle.getText().toString();
             //pesan = this.tvNote.getText().toString();
@@ -127,7 +130,18 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder> {
 
                         context.startActivity(waIntent);
 
-                    } catch (Exception ex) {
+                    }
+                    catch (Exception ex) {
+
+                    }
+                    break;
+                    case  R.id.tv_edit:
+                        try
+                        {
+                            Note note = notes.get(position);
+
+                        }
+                    catch (Exception ex){
 
                     }
                     break;
