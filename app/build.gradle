@@ -24,26 +24,26 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:24.2.1'
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
     //MODULE
     //INPUT
-    compile 'com.android.support:design:24.2.1'
     //BOTTOM NAVIGATION
-    compile 'com.aurelhubert:ahbottomnavigation:2.1.0'
     //ICON
-    compile "com.mikepenz:iconics-core:2.8.1@aar"
     compile "com.android.support:appcompat-v7:24.2.1"
+    //DB
+    // EXPANDABLE LAYOUT
+    // compile 'com.github.aakira:expandable-layout:1.4.2@aar'
+    //CARD VIEW
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:24.2.1'
+    compile 'com.aurelhubert:ahbottomnavigation:2.1.0'
+    compile 'com.mikepenz:iconics-core:2.8.1@aar'
     compile 'com.mikepenz:google-material-typeface:3.0.1.2.original@aar'
     compile 'com.mikepenz:material-design-iconic-typeface:2.2.0.4@aar'
     compile 'com.mikepenz:fontawesome-typeface:4.7.0.2@aar'
-    //DB
     compile 'com.j256.ormlite:ormlite-android:4.48'
     compile 'com.j256.ormlite:ormlite-core:4.48'
-    // EXPANDABLE LAYOUT
-    // compile 'com.github.aakira:expandable-layout:1.4.2@aar'
     compile 'com.thoughtbot:expandablerecyclerview:1.4'
-    //CARD VIEW
     compile 'com.android.support:cardview-v7:24.2.1'
+    testCompile 'junit:junit:4.12'
 }
