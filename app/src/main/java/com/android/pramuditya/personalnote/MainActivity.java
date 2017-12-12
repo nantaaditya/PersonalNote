@@ -1,5 +1,9 @@
 package com.android.pramuditya.personalnote;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentManager;
@@ -13,6 +17,9 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.mikepenz.fontawesome_typeface_library.FontAwesome;
 import com.mikepenz.iconics.IconicsDrawable;
+
+import java.sql.Date;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     //Bottom Navigation
@@ -35,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         this.initializeElement();
         this.createBottomNavigation();
         this.initializeFragment();
+
+//        scheduleAlarm();
     }
 
     //INISIALISASI ELEMEN
@@ -116,5 +125,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
 
 }

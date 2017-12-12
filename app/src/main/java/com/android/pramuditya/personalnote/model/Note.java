@@ -1,5 +1,7 @@
 package com.android.pramuditya.personalnote.model;
 
+import android.database.Cursor;
+
 import com.j256.ormlite.field.DataType;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
@@ -80,4 +82,6 @@ public class Note implements Serializable {
     public void setNote(String note) {
         this.note = note;
     }
+
+
 }

@@ -7,6 +7,8 @@ import com.android.pramuditya.personalnote.model.Note;
 import com.android.pramuditya.personalnote.model.Tag;
 import com.j256.ormlite.android.apptools.OrmLiteSqliteOpenHelper;
 import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.stmt.Where;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
 
@@ -65,5 +67,12 @@ public class DBHelper extends OrmLiteSqliteOpenHelper {
     public <T> void deleteAll(Class clazz) throws SQLException{
         Dao<T, Object> dao = getDao(clazz);
         dao.deleteBuilder().delete();
+    }
+    public Tag findTagByName(Class clazz, String name)
+        throws SQLException{
+        QueryBuilder<Tag, String> queryBuilder = getDao(clazz).queryBuilder();
+        Where<Tag, String> where = queryBuilder.where();
+        where.eq("name", name);
+        return where.queryForFirst();
     }
 }

@@ -81,14 +81,14 @@
             android:inputType="textMultiLine" />
     </android.support.design.widget.TextInputLayout>
 
-    <com.mikepenz.iconics.view.IconicsButton
+    <Button
         android:id="@+id/b_save"
-        style="?android:attr/borderlessButtonStyle"
+
         android:layout_width="match_parent"
         android:layout_height="36dp"
         android:layout_gravity="bottom"
         android:background="@color/colorGreen"
-        android:stateListAnimator="@null"
+
         android:text="Save"
         android:textColor="@color/colorIconOrText"
         android:textSize="14sp"
