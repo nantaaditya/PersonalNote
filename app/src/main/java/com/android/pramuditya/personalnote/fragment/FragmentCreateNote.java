@@ -136,7 +136,7 @@ public class FragmentCreateNote extends Fragment implements View.OnClickListener
                 Note note = new Note(title, waktu, tag, isi);
                 Log.d("test", note.getTitle());
                 this.dbHelper.createOrUpdate(note);
-                this.scheduleAlarm(waktu);
+                this.scheduleAlarm(waktu, note);
             } catch (Exception e) {
                 Log.d("", e.getMessage());
             }
@@ -144,9 +144,11 @@ public class FragmentCreateNote extends Fragment implements View.OnClickListener
         }
     }
 
-    private void scheduleAlarm(Date time) {
+    private void scheduleAlarm(Date time, Note note) {
         AlarmManager manager = (AlarmManager) getActivity().getSystemService(Context.ALARM_SERVICE);
-        PendingIntent pending = PendingIntent.getBroadcast(getActivity(), 0, new Intent(getActivity(), AlarmReceiver.class), 0);
+        Intent intent = new Intent(getActivity(), AlarmReceiver.class);
+        intent.putExtra("note", note);
+        PendingIntent pending = PendingIntent.getBroadcast(getActivity(), 0, intent, 0);
         manager.set(AlarmManager.RTC_WAKEUP, time.getTime(), pending);
     }
 

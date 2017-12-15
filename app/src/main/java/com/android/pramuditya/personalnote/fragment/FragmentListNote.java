@@ -42,6 +42,9 @@ public class FragmentListNote extends Fragment{
 
     //private TextView tvDelete;
 
+
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -61,10 +64,13 @@ public class FragmentListNote extends Fragment{
 
     }
 
+
+
     private void initializeData() {
         try {
             this.notes.clear();
             this.notes.addAll(this.dbHelper.getAll(Note.class));
+
             if (notes.isEmpty()) {
                 //delete after development
                 Tag tag = new Tag("other");
