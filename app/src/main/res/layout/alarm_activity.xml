@@ -34,4 +34,6 @@
         android:text="{faw-stop-circle-o}"
         android:textColor="@color/colorIconOrText"
         android:textSize="32sp" />
+
+
 </LinearLayout>

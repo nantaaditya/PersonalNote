@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 public class Splashscreen extends AppCompatActivity {
 
-    TextView tvSplash;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +18,6 @@ public class Splashscreen extends AppCompatActivity {
 
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splashscreen);
-
-        tvSplash = (TextView) findViewById(R.id.tvSplash);
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
