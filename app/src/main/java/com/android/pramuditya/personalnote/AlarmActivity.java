@@ -24,6 +24,8 @@ public class AlarmActivity extends AppCompatActivity {
     private TextView tvNote;
     private TextView tvTitle;
     private Button btStop;
+    private MediaPlayer mp;
+
 
 
     @Override
@@ -36,21 +38,28 @@ public class AlarmActivity extends AppCompatActivity {
 
 
 
+
         Intent intent = this.getIntent();
-        Note note = (Note)intent.getSerializableExtra("note");
-        this.tvTitle.setText(note.getTitle());
-        this.tvNote.setText(note.getNote());
 
 
-        final MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.alarm);
-        mediaPlayer.setLooping(true);
-        mediaPlayer.start();
+        if (intent.getSerializableExtra("note")!=null)
+        {
+            Note note = (Note) intent.getSerializableExtra("note");
+            Log.d("TEST", note.getTitle());
+            this.tvTitle.setText(note.getTitle());
+            this.tvNote.setText(note.getNote());
+        }
+
+
+        mp = MediaPlayer.create(this, R.raw.alarm);
+        mp.setLooping(true);
+        mp.start();
 
 
         this.btStop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mediaPlayer.stop();
+                mp.stop();
             }
         });
     }

@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.android.pramuditya.personalnote.model.Note;
@@ -15,15 +16,16 @@ import com.android.pramuditya.personalnote.model.Note;
 public class AlarmReceiver extends BroadcastReceiver {
 
     public void onReceive(Context context, Intent intent){
-        Toast.makeText(context, "sukses",Toast.LENGTH_SHORT);
+
         Note note = null;
         if(intent.getSerializableExtra("note") != null) {
             note = (Note)intent.getSerializableExtra("note");
+
         }
 
 
         intent = new Intent(context, AlarmActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("note", note);
         context.startActivity(intent);
 
